@@ -1,0 +1,10 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+---
+
+spring:
+  profiles: cloud
+  data:
+    mongodb:
+      uri: mongodb://bmahecha123:Figure123!@ds249357-a0.mlab.com:49357,ds249357-a1.mlab.com:49357/mahechabjj?replicaSet=rs-ds249357
