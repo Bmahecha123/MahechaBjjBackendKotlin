@@ -1,29 +1,29 @@
 package com.mahechabjj.userservice.model
 
 data class Playlist(
-        val name: String,
-        val description: String,
-        val videos: ArrayList<Video>)
+        val name: String = "",
+        var description: String = "",
+        var videos: ArrayList<Video> = ArrayList())
 
 data class User(
-        val id: String,
-        val email: String,
-        val name: String,
-        val belt: String,
-        val secretQuestion: String,
-        val secretQuestionAnswer: String,
-        var password: String,
-        var playlists: ArrayList<Playlist>,
-        val packages: Packages)
+        var id: String? = null,
+        var email: String = "",
+        var name: String = "",
+        var belt: String = "",
+        var secretQuestion: String = "",
+        var secretQuestionAnswer: String = "",
+        var password: String = "",
+        var playlists: ArrayList<Playlist> = ArrayList(),
+        var packages: Packages? = null)
 
 data class Packages(
-        val noGiJiuJitsu: Boolean,
-        val giJiuJitsu: Boolean,
-        val giAndNoGiJiuJitsu: Boolean)
+        val noGiJiuJitsu: Boolean = false,
+        val giJiuJitsu: Boolean = false,
+        val giAndNoGiJiuJitsu: Boolean = false)
 
 data class Video(
-        val name: String,
-        val image: String,
-        val link: String,
-        val linkHd: String,
-        val description: String)
+        val name: String = "",
+        val image: String = "",
+        val link: String = "",
+        val linkHd: String = "",
+        val description: String = "")
