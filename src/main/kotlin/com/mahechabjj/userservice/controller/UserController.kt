@@ -121,10 +121,9 @@ class UserController {
 
         var userPlaylist: Playlist? = null
 
-        //Refactor to make it more functional (map perhaps?)
-        for(playlist: Playlist in playListList) {
-            if (playlist.name.contains(playlistName))
-                userPlaylist = playlist
+        playListList.forEach {
+            if (it.name.contains(playlistName))
+                userPlaylist = it
         }
 
         return ResponseEntity<Playlist>(userPlaylist, HttpStatus.OK)
@@ -138,10 +137,11 @@ class UserController {
         val playListList = user.playlists
         var playListTobeRemoved: Playlist? = null
 
-        //Refactor with map or a more functional approach
-        for (playlist: Playlist in playListList)
-            if (playlist.name.contains(newPlaylist.name))
-                playListTobeRemoved = playlist
+        playListList.forEach {
+            if (it.name.contains(newPlaylist.name))
+                playListTobeRemoved = it
+
+        }
 
         playListList.remove(playListTobeRemoved)
         playListList.add(newPlaylist)
@@ -160,7 +160,6 @@ class UserController {
         val playListList = user.playlists
         var deletePlaylist: Playlist? = null
 
-        //Refactor with more functional approach
         playListList.forEach {
             if (it.name.contains(playListToBeDeleted.name))
                 deletePlaylist = it
@@ -182,9 +181,10 @@ class UserController {
         val playListList = user.playlists
         var found: Boolean = false
 
-        for (playlist: Playlist in playListList)
-            if (playlist.name.contains(userPlaylist.name))
+        playListList.forEach {
+            if (it.name.contains(userPlaylist.name))
                 found = true
+        }
 
         if (found)
             playListList.remove(userPlaylist)
