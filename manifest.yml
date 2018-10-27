@@ -1,0 +1,5 @@
+applications:
+- name: mahechabjj-kotlin
+  memory: 1024M
+  path: target/user-service-1.0.0.jar
+  instances: 1
